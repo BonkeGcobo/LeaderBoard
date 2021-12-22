@@ -1,3 +1,23 @@
-body {
-  background-color: bisque;
+.main-sec {
+  display: flex;
+  gap: 50px;
+}
+
+.scorehead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#name,
+#score {
+  margin-bottom: 1rem;
+}
+
+.subBtn {
+  float: right;
+}
+
+.listScores {
+  border: 1px solid #000;
 }
