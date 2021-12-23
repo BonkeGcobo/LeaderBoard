@@ -21,3 +21,7 @@
 .listScores {
   border: 1px solid #000;
 }
+
+.eachScore {
+  border-top: 1px solid #000;
+}
