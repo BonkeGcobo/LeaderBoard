@@ -19,7 +19,7 @@ const display = async () => {
   scoreSec.innerHTML = '';
   const { result } = await getData(`${baseURL}games/${getIdFromStorage()}/scores`);
   result.forEach((itemScore) => {
-    const eachScore = `<p class="eachScore">${itemScore.user}:${itemScore.score}</p><hr>`;
+    const eachScore = `<p class="eachScore">${itemScore.user}:${itemScore.score}</p>`;
     scoreSec.insertAdjacentHTML('beforeend', eachScore);
   });
 };
@@ -50,7 +50,8 @@ subBtn.addEventListener('click', () => {
   add(name.value, score.value);
 });
 
-refreshBtn.addEventListener('click', () => {
-  window.location.reload();
+refreshBtn.addEventListener('click', async () => {
+  display();
 });
+
 saveGameOnLocalStorage();
