@@ -1,5 +1,5 @@
 import './style.css';
-import { createGame,sendData ,getData} from './crud.js';
+import { createGame, sendData, getData } from './crud.js';
 
 const name = document.getElementById('name');
 const score = document.getElementById('score');
@@ -8,12 +8,20 @@ const subBtn = document.querySelector('.subBtn');
 const refreshBtn = document.querySelector('.refreshBtn');
 const scoreSec = document.querySelector('.listScores');
 
-
 const baseURL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 
 const getIdFromStorage = () => {
   const localStorageId = localStorage.getItem('id') ? JSON.parse(localStorage.getItem('id')) : null;
   return localStorageId;
+};
+
+const display = async () => {
+  scoreSec.innerHTML = '';
+  const { result } = await getData(`${baseURL}games/${getIdFromStorage()}/scores`);
+  result.forEach((itemScore) => {
+    const eachScore = `<p class="eachScore">${itemScore.user}:${itemScore.score}</p><hr>`;
+    scoreSec.insertAdjacentHTML('beforeend', eachScore);
+  });
 };
 
 const saveGameOnLocalStorage = () => {
@@ -22,35 +30,25 @@ const saveGameOnLocalStorage = () => {
   };
   if (!getIdFromStorage()) {
     window.addEventListener('load', async () => {
-      const  {result}  = await createGame(`${baseURL}games`, data);
-      localStorage.setItem('id', JSON.stringify(result.substr(14,20)));
+      const { result } = await createGame(`${baseURL}games`, data);
+      localStorage.setItem('id', JSON.stringify(result.substr(14, 20)));
     });
   }
 };
 
-const add =  async (name, score) => {
+const add = async (name, score) => {
   const data = {
     user: name,
-    score: score
-  }
+    score,
+  };
 
-  await sendData(`${baseURL}games/${getIdFromStorage()}/scores`,data);
+  await sendData(`${baseURL}games/${getIdFromStorage()}/scores`, data);
   display();
 };
 
-
-subBtn.addEventListener('click',() =>{
+subBtn.addEventListener('click', () => {
   add(name.value, score.value);
 });
-
-const display = async () => {
-  scoreSec.innerHTML = '';
-  const {result} = await getData(`${baseURL}games/${getIdFromStorage()}/scores`);
-  result.forEach((itemScore) => {
-    const eachScore = `<p class="eachScore">${itemScore.user}:${itemScore.score}</p><hr>`;
-    scoreSec.insertAdjacentHTML('beforeend', eachScore);
-  });
-};
 
 refreshBtn.addEventListener('click', () => {
   window.location.reload();
