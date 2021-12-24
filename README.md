@@ -8,10 +8,10 @@
 
 Additional description about the project and its features.
 
-## Implenting the LeaderBoard API
+# Implenting the LeaderBoard API
  - Base URL : https://us-central1-js-capstone-backend.cloudfunctions.net/api/
 
- # Endpoints
+ ## Endpoints
   **/games/**
 
   Allowed actions:
