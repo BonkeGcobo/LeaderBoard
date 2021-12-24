@@ -3,6 +3,7 @@
 .main-sec {
   display: flex;
   gap: 50px;
+  margin-left: 3rem;
 }
 
 .scorehead {
@@ -44,7 +45,7 @@ body {
 }
 
 .scores-sec {
-  width: 65%;
+  width: 50%;
 }
 
 .userScore {
