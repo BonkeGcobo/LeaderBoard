@@ -4,9 +4,96 @@
 
 > In this activity we will set up a JavaScript project for the Leaderboard list app, using webpack and ES6 features, notably modules. We will consume the Leaderboard API using JavaScript async and await and add some styling.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./LeaderBoardScreen.JPG)
 
 Additional description about the project and its features.
+
+## Implenting the LeaderBoard API
+ - Base URL : https://us-central1-js-capstone-backend.cloudfunctions.net/api/
+
+ # Endpoints
+  **/games/**
+
+  Allowed actions:
+   - POST to create a new game
+
+  Mandatory parameters for POST action:
+   - name: name of the game
+
+  Parameters example for POST action (sent in the body of the request in JSON format):
+
+  ```json
+  { 
+	"name": "My cool new game" 
+  }
+  ```
+  Return value: unique identifier for the game
+
+  ```json 
+  {
+	"result": "Game with ID: Zl4d7IVkemOTTVg2fUdz added."
+  } 
+  ```
+
+  **/games/:id/scores/**
+
+URL parameters:
+
+- id: unique identifier of the game
+
+URL example: `/games/Zl4d7IVkemOTTVg2fUdz/scores/`
+
+Allowed actions:
+
+- POST to create a new score for the given game
+- GET to get a list of scores for the given game
+
+Mandatory parameters for POST action:
+
+- user: name of the user
+- score: points (number)
+
+Parameters example for POST action (sent in the body of the request in JSON format):
+
+```json
+{ 
+	"user": "John Doe",
+	"score": 42
+}
+```
+
+Return value for POST action:
+
+```json
+{
+	"result": "Leaderboard score created correctly."
+}
+```
+
+Parameters for GET action: none
+
+Return value for GET action:
+
+```json
+{
+    "result": [
+        {
+            "user": "John Doe",
+            "score": 42
+        },
+        {
+            "user": "Peter Parker",
+            "score": 35
+        },
+        {
+            "user": "Wonder Woman",
+            "score": 50
+        }
+    ]
+}
+``` 
+
+
 
 ## Built With
 
