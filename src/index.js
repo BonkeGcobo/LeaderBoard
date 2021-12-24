@@ -19,7 +19,10 @@ const display = async () => {
   scoreSec.innerHTML = '';
   const { result } = await getData(`${baseURL}games/${getIdFromStorage()}/scores`);
   result.forEach((itemScore) => {
-    const eachScore = `<p class="eachScore">${itemScore.user}:${itemScore.score}</p>`;
+    const eachScore = `<div class="eachScore">
+    <p class="userName">${itemScore.user}</p>
+    <p class="userScore">${itemScore.score}</p>
+    </div>`;
     scoreSec.insertAdjacentHTML('beforeend', eachScore);
   });
 };

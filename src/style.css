@@ -23,5 +23,8 @@
 }
 
 .eachScore {
+  display: flex;
+  justify-content: space-between;
   border-top: 1px solid #000;
+  padding: 1rem;
 }
