@@ -21,7 +21,9 @@ const display = async () => {
   result.forEach((itemScore) => {
     const eachScore = `<div class="eachScore">
     <p class="userName">${itemScore.user}</p>
-    <p class="userScore">${itemScore.score}</p>
+    <div class= "userScore">
+      <p>${itemScore.score}</p>
+    </div>
     </div>`;
     scoreSec.insertAdjacentHTML('beforeend', eachScore);
   });

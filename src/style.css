@@ -15,8 +15,14 @@
   margin-bottom: 1rem;
 }
 
-.subBtn {
+.subBtn,
+.refreshBtn {
   float: right;
+  cursor: pointer;
+  background-color: #F7335D;
+  border-style: none;
+  color: #fff;
+  padding: 0.5rem;
 }
 
 .listScores {
@@ -34,4 +40,15 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #1b1f2b;
   color: #E8E9EA;
+}
+
+.scores-sec {
+  width: 65%;
+}
+
+.userScore {
+  background-color: #F7335D;
+  border-radius: 100%;
+  width: 50px;
+  text-align: center;
 }
