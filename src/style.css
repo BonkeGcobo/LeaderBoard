@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
+
 .main-sec {
   display: flex;
   gap: 50px;
@@ -19,7 +20,7 @@
 .refreshBtn {
   float: right;
   cursor: pointer;
-  background-color: #F7335D;
+  background-color: #f7335d;
   border-style: none;
   color: #fff;
   padding: 0.5rem;
@@ -39,7 +40,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #1b1f2b;
-  color: #E8E9EA;
+  color: #e8e9ea;
 }
 
 .scores-sec {
@@ -47,7 +48,7 @@ body {
 }
 
 .userScore {
-  background-color: #F7335D;
+  background-color: #f7335d;
   border-radius: 100%;
   width: 50px;
   text-align: center;
